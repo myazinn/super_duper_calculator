@@ -4,6 +4,14 @@
 // [mathisfun]: https://www.mathisfun.com/numbers/addition.html
 package super_duper_calculator
 
-func Add(a, b int) int {
+import (
+	"golang.org/x/exp/constraints"
+)
+
+type Calcable interface {
+	constraints.Integer | constraints.Float
+}
+
+func Add[N Calcable](a, b N) N {
 	return a + b
 }
